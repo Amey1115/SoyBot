@@ -99,6 +99,8 @@
 
 
 		<!-- Price prediction section -->
+		<!DOCTYPE html>
+		<html>
 
 		<head>
 			<title>Soybean Price Prediction</title>
@@ -119,63 +121,89 @@
 				}
 			</style>
 		</head>
-		<br><br>
-		<h1>Soybean Price Prediction</h1>
 
-		<h4 for="weather" >Select Weather</h4>
-		<br>
-		<!-- <label for="weather" >Select Weather:</label> -->
-		<select id="weather">
-			<option value="sunny">Sunny</option>
-			<option value="rainy">Rainy</option>
-			<option value="cloudy">Cloudy</option>
-		</select>
+		<body>
+			<br><br>
+			<h1>Soybean Price Prediction (Beta)</h1>
 
-		<br><br>
-		<button onclick="predictPrice() " class="predict-box">Predict Price</button>
+			<h4 for="region">Select Region:</h4>
+			<select id="region">
+				<option value="maharashtra">Maharashtra</option>
+				<option value="mp">Madhya Pradesh</option>
+				<option value="rajasthan">Rajasthan</option>
+				<option value="other">Other States</option>
+			</select>
 
-		<p id="predictionResult"></p>
+			<br><br>
 
-		<script>
-			function predictPrice() {
-				const weather = document.getElementById("weather").value;
-				let price;
+			<h4 for="weather">Select Weather:</h4>
+			<select id="weather">
+				<option value="sunny">Sunny</option>
+				<option value="rainy">Rainy</option>
+				<option value="cloudy">Cloudy</option>
+			</select>
 
-				// Simple price prediction logic based on weather
-				if (weather === "sunny") {
-					price = Math.floor(Math.random() * (8000 - 6000 + 1)) + 6000; // Random price between 6000 and 8000 Rs
-				} else if (weather === "rainy") {
-					price = Math.floor(Math.random() * (5000 - 4000 + 1)) + 4000; // Random price between 4000 and 5000 Rs
-				} else {
-					price = Math.floor(Math.random() * (7500 - 6000 + 1)) + 6000; // Random price between 6000 and 7500 Rs
+			<br><br>
+			<button onclick="predictPrice()" class="predict-box">Predict Price</button>
+
+			<p id="predictionResult"></p>
+
+			<script>
+				function predictPrice() {
+					const region = document.getElementById("region").value;
+					const weather = document.getElementById("weather").value;
+					let price;
+
+					// Simple price prediction logic based on region and weather
+					if (region === "maharashtra") {
+						if (weather === "sunny") {
+							price = Math.floor(Math.random() * (8000 - 6000 + 1)) + 6000; // Random price between 6000 and 8000 Rs
+						} else if (weather === "rainy") {
+							price = Math.floor(Math.random() * (5000 - 4000 + 1)) + 4000; // Random price between 4000 and 5000 Rs
+						} else {
+							price = Math.floor(Math.random() * (7500 - 6000 + 1)) + 6000; // Random price between 6000 and 7500 Rs
+						}
+					} else if (region === "mp") {
+						// Adjust prices for Madhya Pradesh
+						// Implement similar logic based on weather
+						// ...
+					} else if (region === "rajasthan") {
+						// Adjust prices for Rajasthan
+						// Implement similar logic based on weather
+						// ...
+					} else {
+						// Adjust prices for other states
+						// Implement similar logic based on weather
+						// ...
+					}
+
+					document.getElementById("predictionResult").textContent = `Predicted Price: ${price} Rs`;
 				}
+			</script>
 
-				document.getElementById("predictionResult").textContent = `Predicted Price: ${price} Rs`;
-			}
-		</script>
-
-		<!------Featured Categories----->
-		<section class="featured-categories">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-3">
-						<img src="https://i.postimg.cc/7ZZWpcB0/featured.png">
+			<!------Featured Categories----->
+			<section class="featured-categories">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<img src="https://i.postimg.cc/7ZZWpcB0/featured.png">
+						</div>
+						<div class="col-md-3">
+							<img src="https://i.postimg.cc/Kj50WrB0/featured1.png">
+						</div>
+						<div class="col-md-3">
+							<img src="https://i.postimg.cc/FKcgqVQ0/featured2.png">
+						</div>
+						<div class="col-md-3">
+							<img src="https://i.postimg.cc/RCG1j02p/featured3.png">
+						</div>
 					</div>
-					<div class="col-md-3">
-						<img src="https://i.postimg.cc/Kj50WrB0/featured1.png">
-					</div>
-					<div class="col-md-3">
-						<img src="https://i.postimg.cc/FKcgqVQ0/featured2.png">
-					</div>
-					<div class="col-md-3">
-						<img src="https://i.postimg.cc/RCG1j02p/featured3.png">
-					</div>
-
-
 				</div>
+			</section>
+		</body>
 
-			</div>
-		</section>
+		</html>
+
 
 
 
