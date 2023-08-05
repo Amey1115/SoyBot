@@ -847,6 +847,58 @@
 
 
 
+		<!-- Price prediction section -->
+
+		<head>
+			<title>Soybean Price Prediction</title>
+			<style>
+				body {
+					font-family: Arial, sans-serif;
+					text-align: center;
+				}
+
+				h1 {
+					color: #007BFF;
+				}
+
+				#predictionResult {
+					margin-top: 20px;
+					font-size: 18px;
+					font-weight: bold;
+				}
+			</style>
+		</head>
+
+		<h1>Soybean Price Prediction</h1>
+
+		<label for="weather">Select Weather:</label>
+		<select id="weather">
+			<option value="sunny">Sunny</option>
+			<option value="rainy">Rainy</option>
+			<option value="cloudy">Cloudy</option>
+		</select>
+
+		<button onclick="predictPrice()">Predict Price</button>
+
+		<p id="predictionResult"></p>
+
+		<script>
+			function predictPrice() {
+				const weather = document.getElementById("weather").value;
+				let price;
+
+				// Simple price prediction logic based on weather
+				if (weather === "sunny") {
+					price = Math.floor(Math.random() * (8000 - 6000 + 1)) + 6000; // Random price between 6000 and 8000 Rs
+				} else if (weather === "rainy") {
+					price = Math.floor(Math.random() * (5000 - 4000 + 1)) + 4000; // Random price between 4000 and 5000 Rs
+				} else {
+					price = Math.floor(Math.random() * (7500 - 6000 + 1)) + 6000; // Random price between 6000 and 7500 Rs
+				}
+
+				document.getElementById("predictionResult").textContent = `Predicted Price: ${price} Rs`;
+			}
+		</script>
 
 
 
